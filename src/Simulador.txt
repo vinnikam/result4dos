@@ -1,0 +1,32 @@
+Objeto Result4dos. 
+
+Base de datos MariaDb, se crea el usuario y la base de datos para ser usada. 
+
+    create database `resultadosdb`;
+    CREATE USER 'elusuario' IDENTIFIED BY 'laclave';
+    GRANT USAGE ON *.* TO 'elusuario'@'%' IDENTIFIED BY 'laclave';
+    GRANT ALL privileges ON `resultadosdb`.* TO 'elusuario'@'%';
+
+
+Autor: Vinni
+
+
+CREATE TABLE equipos (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    eq_nombre VARCHAR(100) UNIQUE,
+    eq_entrenador VARCHAR(150) 
+);
+create table partidos(
+    id BIGINT auto_increment,
+    pa_fecha date,
+    pa_elocal_id bigint,
+    pa_local_gol bigint,
+    pa_evisitante_id bigint,
+    pa_visitante_gol bigint,
+    primary key(id),
+    constraint  fk_plocal   foreign key(pa_elocal_id) 
+        references equipos(id),
+    constraint  fk_pvisitante   foreign key(pa_evisitante_id) 
+        references equipos(id)
+
+);
