@@ -1,15 +1,12 @@
-Objeto Result4dos. 
-
-Base de datos MariaDb, se crea el usuario y la base de datos para ser usada. 
-
-    create database `bd_campeonato`;
-    CREATE USER 'elusuario' IDENTIFIED BY 'laclave';
-    GRANT USAGE ON *.* TO 'elusuario'@'%' IDENTIFIED BY 'laclave';
-    GRANT ALL privileges ON `bd_campeonato`.* TO 'elusuario'@'%';
-
-
-
-
+/**
+ * Author:  Vinni
+ * Created: 18/06/2021
+ */
+-- DATOS DE CREACION DE USUARIO Y BASE DE DATOS. 
+create database `bd_campeonato`;
+CREATE USER 'elusuario' IDENTIFIED BY 'laclave';
+GRANT USAGE ON *.* TO 'elusuario'@'%' IDENTIFIED BY 'laclave';
+GRANT ALL privileges ON `bd_campeonato`.* TO 'elusuario'@'%';
 
 CREATE TABLE equipos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -30,5 +27,3 @@ create table partidos(
         references equipos(id)
 
 );
-
-Autor: Vinni

@@ -25,6 +25,7 @@ public class OperacionesEquipo implements Operaciones<Equipo>{
     private final String sqlEditar = "update equipos set  eq_nombre = ? , eq_entrenador =?  where id = ?";
     private final String sqlBorrar = "delete from equipos where id = ?";
     private final String sqlConsultaPK = "select * from equipos where id = ?";
+    private final String sqlConsultaNM = "select * from equipos where eq_nombre = ?";
     private final String sqlConsulta = "select * from equipos ";
     @Override
     public int crear(Equipo dato) {
@@ -111,7 +112,27 @@ public class OperacionesEquipo implements Operaciones<Equipo>{
         }
         return null;
     }
-
+    public Equipo consultar(String nombre) {
+        ManejadorConexiones mc = new ManejadorConexiones();
+        Connection conActiva = mc.conectarse();
+        if (conActiva != null){
+            try {
+                PreparedStatement ps = conActiva.prepareStatement(sqlConsultaNM);
+                ps.setString(1, nombre);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()){
+                    Equipo e = cargarEquipo(rs);
+                    return e;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(OperacionesEquipo.class.getName()).log(Level.SEVERE, "Error al consultar nombre equipo", ex);
+            }finally{
+                mc.desConectarse(conActiva);
+            }
+            
+        }
+        return null;
+    }
     @Override
     public List<Equipo> consultarAll() {
         ManejadorConexiones mc = new ManejadorConexiones();

@@ -33,10 +33,10 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         btSalir = new javax.swing.JButton();
-        btGpartidos = new javax.swing.JButton();
         btRegistraPartido = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        btGpartidos1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -48,16 +48,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btSalir);
-        btSalir.setBounds(490, 220, 90, 30);
-
-        btGpartidos.setText("GESTIONAR EQUIPOS");
-        btGpartidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btGpartidosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btGpartidos);
-        btGpartidos.setBounds(260, 60, 230, 30);
+        btSalir.setBounds(490, 260, 90, 30);
 
         btRegistraPartido.setText("REGISTRAR PARTIDO");
         btRegistraPartido.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +57,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btRegistraPartido);
-        btRegistraPartido.setBounds(260, 100, 230, 30);
+        btRegistraPartido.setBounds(260, 140, 230, 30);
 
         jButton4.setText("VER RESULTADOS");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -75,11 +66,20 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(260, 140, 230, 30);
+        jButton4.setBounds(260, 180, 230, 30);
 
         jLabel6.setText("autor: Giovanni Briceño - vinni 2021 - vinni9@gmail.com");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(480, 330, 290, 14);
+
+        btGpartidos1.setText("GESTIONAR EQUIPOS");
+        btGpartidos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGpartidos1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btGpartidos1);
+        btGpartidos1.setBounds(260, 100, 230, 30);
 
         setSize(new java.awt.Dimension(787, 381));
         setLocationRelativeTo(null);
@@ -89,11 +89,6 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btSalirActionPerformed
-
-    private void btGpartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGpartidosActionPerformed
-        // TODO add your handling code here:
-        this.cargarGEquipos();
-    }//GEN-LAST:event_btGpartidosActionPerformed
 
     private void btRegistraPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistraPartidoActionPerformed
         // TODO add your handling code here:
@@ -106,11 +101,16 @@ public class Ventana extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void btGpartidos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGpartidos1ActionPerformed
+        // TODO add your handling code here:
+        this.cargarEquipos();
+    }//GEN-LAST:event_btGpartidos1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-                try {
+        try {
 
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
@@ -129,13 +129,14 @@ public class Ventana extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btGpartidos;
+    private javax.swing.JButton btGpartidos1;
     private javax.swing.JButton btRegistraPartido;
     private javax.swing.JButton btSalir;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 
+ 
     private void cargarGEquipos() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -157,4 +158,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
     }
+
+    private void cargarEquipos() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaEquipos().setVisible(true);
+            }
+        });    
+    }
+    
 }

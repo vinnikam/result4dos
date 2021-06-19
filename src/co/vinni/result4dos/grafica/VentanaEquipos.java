@@ -318,7 +318,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
                  this.mensajeOK("Se borró el equipo exitosamente.");
                  cargarEquipos();
              }else{
-                 this.mensajeWarning("No se borró el equipo. ¡Verifique!");
+                 this.mensajeWarning("No se borró el equipo, existen partidos asociados. ¡Verifique!");
              }
              
          } 

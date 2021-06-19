@@ -76,8 +76,8 @@ public class Partido {
     @Override
     public String toString() {
         return Utilidades.formatoFecha("dd-MM-yyyy", fecha)+" - "+
-                this.equipoLocal.getNombre()+"("+this.golesLocal+") VS "+
-                this.equipoVisitante.getNombre()+"("+this.golesVisitante+")";
+                this.equipoLocal.getNombre()+" ("+this.golesLocal+") VS "+
+                "("+this.golesVisitante+") "+this.equipoVisitante.getNombre();
     }
     
     
